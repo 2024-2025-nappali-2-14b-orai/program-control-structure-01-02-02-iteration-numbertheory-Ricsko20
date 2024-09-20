@@ -46,7 +46,7 @@ public static class Szamelmelet
     public static bool PrimszamE(int szam)
     {
         // Primszám-e a szám
-        return false;
+        return GetOsztok(szam).Count == 2;
     }
 
     public static List<int> GetPrimszamok(int kezdet, int veg)
