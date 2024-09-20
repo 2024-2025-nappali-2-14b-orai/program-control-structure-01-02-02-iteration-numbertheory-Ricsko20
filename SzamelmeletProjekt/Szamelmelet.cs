@@ -38,7 +38,7 @@ public static class Szamelmelet
         return osztok;
     }
 
-    public static string KiLista(List<int> list)
+    public static string ListaToString(List<int> list)
     {
         return string.Join(", ", list);
     }
@@ -65,27 +65,67 @@ public static class Szamelmelet
 
     public static List<int> GetPrimszamokHatarig(int veg)
     {
-        // Prímszámok adott határig
-        return new List<int>();
+        List<int> hatrigPrimek = new List<int>();
+
+        for (int i = 0; i <= veg; i++)
+        {
+            if(PrimszamE(i))
+            {
+                hatrigPrimek.Add(i);
+            }
+        }
+        return hatrigPrimek;
     }
-    public static int GetOsztokOsszege()
-    { return 0; }
+    public static int GetOsztokOsszege(int szam)
+    {
+        List<int> osztok = GetOsztok(szam);
+        int osszeg = 0;
+
+        for(int i = 0; i < osztok.Count;i++)
+        {
+            osszeg += osztok[i];
+        }
+        return osszeg;
+    }
 
     public static bool TokeletesE(int szam)
     {
-        return false;
+        if(GetOsztokOsszege(szam) == szam * 2)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     public static List<int> GetTokeletesek(int kezdet, int veg)
     {
-        // Tökéletesek adott intervallumban
-        return new List<int>();
+        List<int> tokeletesek = new List<int>();
+
+        for(int i = kezdet; i <= veg; i++)
+        {
+            if(TokeletesE(i))
+            {
+                tokeletesek.Add(i);
+            }
+        }
+        return tokeletesek;
     }
 
     public static List<int> GetTokeletesekHatarig(int veg)
     {
-        // Tökéletesek adott határig
-        return new List<int>();
+        List<int> tokeletesekHatarig = new List<int>();
+
+        for (int i = 0; i <= veg; i++)
+        {
+            if (TokeletesE(i))
+            {
+                tokeletesekHatarig.Add(i);
+            }
+        }
+        return tokeletesekHatarig;
     }
 
     public static bool ParossavalSpecialisSzamE(int elsoSzam, int masodikSzam)

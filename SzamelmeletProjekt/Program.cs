@@ -8,4 +8,9 @@ using SzamelmeletProjekt;
 Console.WriteLine(Szamelmelet.OsztoE(5,35));
 Console.WriteLine(Szamelmelet.OsztoE(8,35));
 
-Console.WriteLine(Szamelmelet.KiLista(Szamelmelet.GetOsztok(6)));
+Console.WriteLine(Szamelmelet.ListaToString(Szamelmelet.GetOsztok(6)));
+
+Console.WriteLine("Kétjegyű prímszámok: ");
+Console.WriteLine(Szamelmelet.ListaToString(Szamelmelet.GetPrimszamok(10, 99)));
+
+Console.WriteLine(Szamelmelet.TokeletesE(7));
